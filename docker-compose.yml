@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  postgis:
+    image: mdillon/postgis:11-alpine
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+  api:
+    build: .
+    ports:
+      - 8000:8000
+    environment:
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_HOST: postgis
+      DB_NAME: ${DB_NAME}
+    depends_on:
+      - postgis
+    volumes:
+      - ./reverse_geocoder:/usr/src/reverse_geocoder/reverse_geocoder
+      - ./shapes:/usr/src/reverse_geocoder/shapes
+    command: ["uvicorn", "reverse_geocoder.main:app", "--host", "0.0.0.0", "--reload"]

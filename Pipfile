@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+black = "==19.10b0"
+
+[packages]
+fastapi = "*"
+uvicorn = "*"
+psycopg2-binary = "*"
+pyshp = "*"
+sqlalchemy = "*"
+geoalchemy2 = "*"
+
+[requires]
+python_version = "3.8"
+
+[scripts]
+fmt = "black -t py38 ."

@@ -25,3 +25,6 @@ curlでの例です。
 ```bash
 $ curl -H 'Content-Type:application/json' -d '{"lat": 35.6065536, "lon": 140.1035262}' http://localhost:8000/reverse_geocode
 ```
+
+# LICENSE
+MITです。

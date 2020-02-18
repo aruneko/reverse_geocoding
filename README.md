@@ -2,7 +2,7 @@
 ## What is it?
 国勢調査の境界ポリゴンを利用してリバースジオコードが引けるAPIです。
 
-# How do we start the API server?
+## How do we start the API server?
 Docker Composeで起動してください。8000番ポートを使うので、事前に使われていないことを確認してください。
 
 ```bash
@@ -19,12 +19,12 @@ $ docker-compose up -d
 $ docker-compose exec api python -m reverse_geocoder.initializer ./shapes
 ```
 
-# How do we send a reverse geocode request?
+## How do we send a reverse geocode request?
 curlでの例です。
 
 ```bash
 $ curl -H 'Content-Type:application/json' -d '{"lat": 35.6065536, "lon": 140.1035262}' http://localhost:8000/reverse_geocode
 ```
 
-# LICENSE
+## LICENSE
 MITです。
